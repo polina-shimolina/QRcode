@@ -1,0 +1,15 @@
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\QR.exe.config
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\QR.exe
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\QR.pdb
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csprojAssemblyReference.cache
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\MainWindow.g.cs
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\App.g.cs
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR_MarkupCompile.cache
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR_MarkupCompile.lref
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\MainWindow.baml
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.g.resources
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.Properties.Resources.resources
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.GenerateResource.cache
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.CoreCompileInputs.cache
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.exe
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.pdb
