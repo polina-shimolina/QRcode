@@ -28,10 +28,11 @@ namespace QR
     /// </summary>
     public partial class MainWindow : Window
     {
+        QrCodeEncodingOptions options;
         public MainWindow()
         {
             InitializeComponent();
-            QrCodeEncodingOptions options = new QrCodeEncodingOptions();
+            options = new QrCodeEncodingOptions();
             options = new QrCodeEncodingOptions
             {
                 DisableECI = true,
