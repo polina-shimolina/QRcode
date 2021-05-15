@@ -13,3 +13,5 @@ C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.GenerateResource.ca
 C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.CoreCompileInputs.cache
 C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.exe
 C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.pdb
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.CopyComplete

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MessagingToolkit.QRCode.Codec;
 using MessagingToolkit.QRCode.Codec.Data;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
+using System.Drawing;
 
 namespace QR
 {
@@ -25,16 +31,32 @@ namespace QR
         public MainWindow()
         {
             InitializeComponent();
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions();
+            options = new QrCodeEncodingOptions
+            {
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = 300,
+                Height = 300,
+            };
+            var writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            writer.Options = options;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            //если текст
+            //для текста
             textbox.Visibility = Visibility.Visible;
-            string qrtext = textbox.Text; 
-            QRCodeEncoder encoder = new QRCodeEncoder(); //создаем объект класса QRCodeEncoder
-            Bitmap qrcode = encoder.Encode(qrtext); // кодируем слово, полученное из TextBox'a (qrtext) в переменную qrcode. класса Bitmap(класс, который используется для работы с изображениями)
-            pictureBox1.Image = qrcode as Image;
+            var qr = new ZXing.BarcodeWriter();
+            qr.Options = options;
+            qr.Format = ZXing.BarcodeFormat.QR_CODE;
+            var result = new Bitmap(qr.Write(textbox.Text.Trim()));
+            Image = result;
+            textbox.Clear();
+            
+
+
         }
     }
 }
