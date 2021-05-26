@@ -31,6 +31,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
 
+//все переделатьььььььььььььь
 
 namespace QR {
     
@@ -61,7 +62,7 @@ namespace QR {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public static void Main() {
-            QR.App app = new QR.App();
+            App app = new App();
             app.InitializeComponent();
             app.Run();
         }

@@ -29,35 +29,63 @@ namespace QR
     public partial class MainWindow : Window
     {
         QrCodeEncodingOptions options;
+        QR qr = new QR();
         public MainWindow()
         {
             InitializeComponent();
-            options = new QrCodeEncodingOptions();
-            options = new QrCodeEncodingOptions
-            {
-                DisableECI = true,
-                CharacterSet = "UTF-8",
-                Width = 300,
-                Height = 300,
-            };
-            var writer = new BarcodeWriter();
-            writer.Format = BarcodeFormat.QR_CODE;
-            writer.Options = options;
+
+
+            qr.options(options);
+
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Create_Click(object sender, RoutedEventArgs e)
         {
-            //для текста
-            textbox.Visibility = Visibility.Visible;
-            var qr = new ZXing.BarcodeWriter();
-            qr.Options = options;
-            qr.Format = ZXing.BarcodeFormat.QR_CODE;
-            var result = new Bitmap(qr.Write(textbox.Text.Trim()));
-            Image = result;
-            textbox.Clear();
             
+            switch (QRType.SelectedItem)
+            {
+                case -1:
+                    break;
+                case 0:
+                    {
+                        //text
+                        qr.textOrURL(options);
+                    break;
+                    }
+                    
+                case 1:
+                    {
+                        //text
+                        qr.textOrURL(options);
+                        break;
+                    }
+                case 2:
+                    break;
+                case 3: //pic
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            switch (QRType.SelectedItem)
+            {
+                case -1:
+                    break;
+                case 0: textbox.Visibility = Visibility.Visible; //text
+                    break;
+                case 1: textbox.Visibility = Visibility.Visible; //url
+                    break;
+                case 2:
+                    break;
+                case 3: //pic
+                    break;
+                default:
+                    break;
+            }
 
-
+            textbox.Visibility = Visibility.Visible;
         }
     }
 }

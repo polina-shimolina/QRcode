@@ -15,3 +15,8 @@ C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.exe
 C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.pdb
 C:\Users\Полина\source\repos\QR\QR\bin\Debug\MessagingToolkit.QRCode.dll
 C:\Users\Полина\source\repos\QR\QR\obj\Debug\QR.csproj.CopyComplete
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\System.Drawing.Common.dll
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\zxing.dll
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\zxing.presentation.dll
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\zxing.xml
+C:\Users\Полина\source\repos\QR\QR\bin\Debug\zxing.presentation.xml
