@@ -28,7 +28,7 @@ namespace QRnew
                 case 1: //url
                     {
                         Text.Visibility = Visibility.Visible;
-                        qrimage = qr.textOrURL(Text.Text.Trim());
+                       
                         break;
                     }
                 case 2:
@@ -39,17 +39,18 @@ namespace QRnew
                     break;
             }
 
-            Text.Visibility = Visibility.Visible;
+           // Text.Visibility = Visibility.Visible;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            qrimage = qr.textOrURL(Text.Text.Trim());
             image.Source = qrimage;  //
             Text.Clear();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            qr.SaveQR();
+            qr.SaveQR(qr.bmp);
         }
     }
 }

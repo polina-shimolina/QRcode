@@ -6,6 +6,7 @@ using ZXing;
 using ZXing.QrCode;
 using System.Drawing;
 using Microsoft.Win32;
+using System.IO;
 
 namespace QRnew
 {
@@ -13,31 +14,37 @@ namespace QRnew
     {
         private int width, height; //
         private QrCodeEncodingOptions options;
+        BarcodeWriter qr;
+        public Bitmap bmp;
         public QR()
         {
             width = 300;
             height = 300;
-            options = new QrCodeEncodingOptions { DisableECI = true, CharacterSet = "UTF-8", Width = width, Height = height };
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions { DisableECI = true, CharacterSet = "UTF-8", Width = width, Height = height };
+            qr = new BarcodeWriter();
+            qr.Options = options;
+            qr.Format = ZXing.BarcodeFormat.QR_CODE;
         }
         public QR(int w, int h)
         {
             width = w;
             height = h;
-            options = new QrCodeEncodingOptions { DisableECI = true, CharacterSet = "UTF-8", Width = width, Height = height };
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions { DisableECI = true, CharacterSet = "UTF-8", Width = width, Height = height };
+            qr = new BarcodeWriter();
+            qr.Options = options;
+            qr.Format = ZXing.BarcodeFormat.QR_CODE;
         }
         //public ~QR() { }
         public ImageSource textOrURL(string TeXt)
         {
-            BarcodeWriter qr = new BarcodeWriter();
-            qr.Options = options;
-            qr.Format = ZXing.BarcodeFormat.QR_CODE;
             Bitmap result = new Bitmap(qr.Write(TeXt));
+            bmp = result;
             BitmapSource b = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(result.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             ImageSource IM = b;
             return b;
         }
 
-        public void SaveQR()
+        public void SaveQR(Image bmp1)
         {
             SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "QR"; // Default file name
@@ -50,7 +57,11 @@ namespace QRnew
             {
                 // Save document
                 string filename = dlg.FileName;
+                //string format = dlg.Filter;
+                bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }
+
+        
     }
 }
