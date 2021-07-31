@@ -44,11 +44,15 @@ namespace QRnew
             return b;
         }
 
+        public ImageSource image()
+        {
+            return ImageSource f;
+        }
         public void SaveQR(Image bmp1)
         {
             SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "QR"; // Default file name
-            dlg.Filter = "PNG|*.png|JPEG|*.jpg|GIF|*.gif|BMP|*.bmp"; // Filter files by extension
+            dlg.Filter = "PNG|*.png|JPEG|*.jpeg|GIF|*.gif|BMP|*.bmp"; // Filter files by extension
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -57,9 +61,46 @@ namespace QRnew
             {
                 // Save document
                 string filename = dlg.FileName;
-                //string format = dlg.Filter;
-                bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+                string format = dlg.Filter;
+                switch (format)
+                {
+                    case "png":
+                        {
+                            bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+                        }
+                    case "jpeg":
+                        {
+                            bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            break;
+                        }
+                    case "gif":
+                        {
+                            bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Gif);
+                            break;
+                        }
+                    case "bmp":
+                        {
+                            bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                        }
+                }
+                //bmp1.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
+        }
+
+        public ImageSource openfile()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.InitialDirectory = "c:\\";
+            ofd.Filter = "PNG|*.png|JPEG|*.jpg|GIF|*.gif|BMP|*.bmp";
+            ofd.FilterIndex = 2;
+            ofd.RestoreDirectory = true;
+            string filename = ofd.FileName;
+            //string text = File.ReadAllText(filename); надо для картинки
+            ImageSource img = null;
+            return img;
         }
 
         
