@@ -18,34 +18,35 @@ namespace QRnew
         {
             InitializeComponent();
         }
-        private void QRType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (QRType.SelectedItem)
-            {
-                case -1:
-                    break;
-                case 0: //text
-                case 1: //url
-                    {
-                        Text.Visibility = Visibility.Visible;
-                       
-                        break;
-                    }
-                case 2:
-                    break;
-                case 3: //pic
-                    break;
-                default:
-                    break;
-            }
-
-           // Text.Visibility = Visibility.Visible;
-        }
+       
         private void Button_Click(object sender, RoutedEventArgs e)
-        { 
-            qrimage = qr.textOrURL(Text.Text.Trim());
-            image.Source = qrimage;  //
-            Text.Clear();
+        {
+            //switch (QRType.SelectedItem)
+            //{
+            //    case -1:
+            //        break;
+            //    case 0: //text
+            //    case 1: //url
+            //        {
+            //            qrimage = qr.textOrURL(Text.Text.Trim());
+            //            image.Source = qrimage;  //
+            //            Text.Clear();
+            //            break;
+            //        }
+            //    case 2:
+            //        break;
+            //    case 3: //pic
+            //        {
+                        qrimage = qr.image(Text.Text.Trim());
+                        image.Source = qrimage;  //
+                        Text.Clear();
+            //            break;
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
+            
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

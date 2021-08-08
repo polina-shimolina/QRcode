@@ -44,9 +44,18 @@ namespace QRnew
             return b;
         }
 
-        public ImageSource image()
+        public ImageSource image(string TeXt)
         {
-            return ImageSource f;
+            Bitmap result = new Bitmap(qr.Write(TeXt));
+            Image overlay = openfile();
+            int deltaHeigth = height - overlay.Height;
+            int deltaWidth = width - overlay.Width;
+            Graphics g = Graphics.FromImage(bmp);
+            g.DrawImage(overlay, new System.Drawing.Point(deltaWidth / 2, deltaHeigth / 2));
+            bmp = result;
+            BitmapSource b = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(result.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            ImageSource IM = b;
+            return b;
         }
         public void SaveQR(Image bmp1)
         {
@@ -89,7 +98,7 @@ namespace QRnew
             }
         }
 
-        public ImageSource openfile()
+        public Image openfile()
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
@@ -97,10 +106,10 @@ namespace QRnew
             ofd.Filter = "PNG|*.png|JPEG|*.jpg|GIF|*.gif|BMP|*.bmp";
             ofd.FilterIndex = 2;
             ofd.RestoreDirectory = true;
-            string filename = ofd.FileName;
-            //string text = File.ReadAllText(filename); надо для картинки
-            ImageSource img = null;
-            return img;
+            string filename = ofd.FileName; //////////
+            Image newImage = Image.FromFile(filename);
+            
+            return newImage;
         }
 
         
